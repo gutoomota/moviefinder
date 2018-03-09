@@ -57,7 +57,6 @@ namespace MovieFinder.ViewModels
 
         public void ItemTapped(Movie item)
         {
-            Log = item.title;
             DataService.selectedMovie = item;
             PushPage(new DetailsPage());
         }
