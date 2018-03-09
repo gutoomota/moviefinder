@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MovieFinder.Views.DetailsPage"
+             Title="📺 Details">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical"
+                         Margin="10">
+
+                <Image Source="{Binding ImageLink}"
+                        VerticalOptions="Center"
+                        WidthRequest="150"
+                        Margin="0,2.5,0,2.5" />
+
+                <Label Text="Title: " 
+                        FontSize="Small"
+                        FontAttributes="Bold"
+                        TextColor="Gray"
+                        HorizontalOptions="Start" />
+                <Label Text="{Binding Title}"
+                        FontSize="Medium"
+                        TextColor="Gray"
+                        HorizontalOptions="Fill" />
+
+                <Label Text="Release: " 
+                            FontSize="Small"
+                            FontAttributes="Bold"
+                            TextColor="Gray"
+                            HorizontalOptions="Start" />
+                <Label Text="{Binding Release_date}"
+                            FontSize="Medium"
+                            TextColor="Gray"
+                            HorizontalOptions="Fill" />
+
+                <Label Text="Genre(s): " 
+                            FontSize="Small"
+                            FontAttributes="Bold"
+                            TextColor="Gray"
+                            HorizontalOptions="Start" />
+                <Label Text="{Binding Genres}"
+                            FontSize="Medium"
+                            TextColor="Gray"
+                            HorizontalOptions="Fill" />
+
+                <Label Text="Overview: " 
+                            FontSize="Small"
+                            FontAttributes="Bold"
+                            TextColor="Gray"
+                            HorizontalOptions="Start" />
+                <Label Text="{Binding Overview}"
+                            FontSize="Medium"
+                            TextColor="Gray"
+                            HorizontalOptions="Fill" />
+                
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

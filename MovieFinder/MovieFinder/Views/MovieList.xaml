@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MovieFinder"
+             x:Class="MovieFinder.Views.MovieList"
+             Title="📺 Movie Finder">
+
+    <StackLayout Orientation="Vertical"
+                 VerticalOptions="FillAndExpand"
+                 HorizontalOptions="FillAndExpand"
+                 Margin="10,0,10,0">
+        <!--📺 Movie Finder-->
+        <Label Text="{Binding Log}"
+               Font="Terminal"
+               FontSize="Small"
+               FontAttributes="Bold"
+               TextColor="Gray" 
+               Margin="0,5,0,0"
+               IsVisible="{Binding IsLogVisible}"
+               HorizontalOptions="CenterAndExpand" />
+
+        <Entry Text="{Binding Query}"
+               FontSize="Medium"
+               TextColor="Gray"
+               HorizontalOptions="FillAndExpand"
+               Placeholder="🔎 Search"
+               PlaceholderColor="Gray"
+               FontAttributes="Bold"
+               BackgroundColor="#B3FFFFFF"
+               Margin="20,5,20,2.5" />
+
+        <ListView 
+                x:Name="movieList"
+                ItemsSource="{Binding MovieList}"
+                CachingStrategy="RecycleElement"
+                HasUnevenRows="True"
+                ItemTapped="ItemTapped" >
+
+            <ListView.ItemTemplate >
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal"
+                                     Margin="0,5,0,5" >
+                            <Image Source="{Binding ImageLink}"
+                                   VerticalOptions="Center"
+                                   WidthRequest="75" />
+
+                            <StackLayout HorizontalOptions="FillAndExpand"
+                                         Orientation="Vertical" >
+
+                                <Label Text="Title: " 
+                                           FontSize="Micro"
+                                           FontAttributes="Bold"
+                                           TextColor="Gray"
+                                           HorizontalOptions="Start" />
+                                <Label Text="{Binding title}"
+                                           FontSize="Small"
+                                           TextColor="Gray"
+                                           HorizontalOptions="Fill" />
+
+                                <Label Text="Release: " 
+                                           FontSize="Micro"
+                                           FontAttributes="Bold"
+                                           TextColor="Gray"
+                                           HorizontalOptions="Start" />
+                                <Label Text="{Binding release_date}" 
+                                           FontSize="Small"
+                                           TextColor="Gray"
+                                           HorizontalOptions="Fill" />
+
+                                <Label Text="Genre(s): "
+                                           FontSize="Micro"
+                                           FontAttributes="Bold"
+                                           TextColor="Gray"
+                                           HorizontalOptions="Start" />
+                                <Label Text="{Binding Genres}"
+                                           FontSize="Small"
+                                           TextColor="Gray"
+                                           HorizontalOptions="Fill" />
+
+                            </StackLayout>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+        <ActivityIndicator Margin="20" 
+                           Color="Gray"
+                           IsRunning="{Binding IsLoading}"
+                           IsVisible="{Binding IsLoading}"
+                           VerticalOptions="Center" 
+                           HorizontalOptions="Center" />
+
+    </StackLayout>
+</ContentPage>
