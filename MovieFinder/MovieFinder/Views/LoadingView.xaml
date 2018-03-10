@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MovieFinder.Views.LoadingView">
+    <ContentPage.Content >
+        <StackLayout BackgroundColor="Black" >
+            <StackLayout VerticalOptions="CenterAndExpand" >
+                <Label Text="📺 Movie Finder"
+                       Font="Terminal"
+                       FontSize="Medium"
+                       FontAttributes="Bold"
+                       TextColor="Gray"
+                       VerticalOptions="Center" 
+                       HorizontalOptions="CenterAndExpand" />
+
+                <Label Text="{Binding Log}"
+                       Font="Terminal"
+                       FontSize="Small"
+                       FontAttributes="Bold"
+                       TextColor="Gray" 
+                       Margin="0,5,0,0"
+                       IsVisible="{Binding IsLogVisible}"
+                       HorizontalOptions="CenterAndExpand" />
+
+                <ActivityIndicator Margin="20" 
+                                   Color="Gray"
+                                   IsRunning="True"
+                                   IsVisible="{Binding IsLoading}"
+                                   VerticalOptions="Center" 
+                                   HorizontalOptions="Center" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
